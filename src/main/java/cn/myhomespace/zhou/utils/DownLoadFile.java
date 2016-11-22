@@ -40,8 +40,11 @@ public class DownLoadFile {
                 }
             }
         };
-        Thread downLoadThread=new Thread(downLoadRunnable);
-        downLoadThread.start();
+        for(int i=0;i<10;i++){
+            Thread downLoadThread=new Thread(downLoadRunnable);
+            downLoadThread.start();
+        }
+
 
     }
 

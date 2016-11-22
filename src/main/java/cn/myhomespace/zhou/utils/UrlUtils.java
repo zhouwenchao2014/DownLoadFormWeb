@@ -34,9 +34,9 @@ public class UrlUtils {
             URLConnection urlConnection=url.openConnection();
             urlConnection.setRequestProperty("Accept-Charset","utf-8");
             urlConnection.setRequestProperty("Content-Type","text/html;utf-8");
-            urlConnection.setRequestProperty("Cookie","Hm_lpvt_e0812646157cf7c35cba87cb1e72afc5=1471008539");
-            urlConnection.setRequestProperty("Cookie","Hm_lvt_e0812646157cf7c35cba87cb1e72afc5=1471007775,1471007784,1471008526,1471008539");
-            urlConnection.setRequestProperty("Cookie","AV_TOKEN=\"2|1:0|10:1471020445|8:AV_TOKEN|16:NTk1NjcwNjpUN2Zu|ca6073938b1efd5efdc831900c6c20c6e8b611f6f3599c4467fce7bc7fc217e8\"");
+            urlConnection.setRequestProperty("Cookie","Hm_lpvt_e0812646157cf7c35cba87cb1e72afc5=1479143386");
+            urlConnection.setRequestProperty("Cookie","Hm_lvt_e0812646157cf7c35cba87cb1e72afc5=1479143379");
+            urlConnection.setRequestProperty("Cookie","AV_TOKEN=\"2|1:0|10:1479143380|8:AV_TOKEN|16:NTk1NjcwNjpUN2Zu|9f7cf1ec65c7bb037f1f8506c475e66c3bcdb8319a1ec60986ae535badaef0b7\"");
             urlConnection.connect();
             inputStream=urlConnection.getInputStream();
             inputStreamReader=new InputStreamReader(inputStream,"GBK");
