@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.myhomespace.zhou</groupId>
-  <artifactId>Dota2MessageSearch</artifactId>
+  <artifactId>DownLoadFromWeb</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>Dota2MessageSearch Maven Webapp</name>
+  <name>DownLoadFromWeb</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -106,8 +106,15 @@
           <artifactId>jedis</artifactId>
           <version>2.8.0</version>
       </dependency>
+      <dependency>
+          <!-- jsoup HTML parser library @ http://jsoup.org/ -->
+          <groupId>org.jsoup</groupId>
+          <artifactId>jsoup</artifactId>
+          <version>1.10.1</version>
+      </dependency>
+
   </dependencies>
   <build>
-    <finalName>Dota2MessageSearch</finalName>
+    <finalName>DownLoadFromWeb</finalName>
   </build>
 </project>

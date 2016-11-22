@@ -15,7 +15,10 @@ import java.util.Queue;
  */
 public class DownLoadFile {
 
-    private static String path=SystemMessage.getUserHome()+"/Img";
+    //private static String path=SystemMessage.getUserHome()+"/Img";
+
+    private static String path="E:\\Tool\\Ebook";
+
 
     private static Queue<String> queue = new LinkedList<String>();
 
@@ -49,7 +52,7 @@ public class DownLoadFile {
     }
 
     public static void downLoadFromLocalFile(){
-        File file=new File("/Users/zhouwenchao/Downloads/Anyview.htm");
+        File file=new File("E:\\Tool\\Ebook\\view.htm");
         try {
             InputStream inputStream=new FileInputStream(file);
             BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream));
