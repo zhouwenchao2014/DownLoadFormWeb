@@ -15,9 +15,32 @@ import java.util.Queue;
  */
 public class UrlUtils {
 
+
+
     public static String getNameFromUrl(String url){
         String fileName=url.substring(url.lastIndexOf("/"),url.length());
         return fileName;
+    }
+
+    public static BufferedReader getBufferByUrlNoProperty(String urlStr){
+        BufferedReader bufferedReader=null;
+        InputStream inputStream=null;
+        InputStreamReader inputStreamReader=null;
+        try {
+            URL url=new URL(urlStr);
+            System.out.println("Open connect");
+            URLConnection urlConnection=url.openConnection();
+            System.out.println("get stream");
+            inputStream=urlConnection.getInputStream();
+            inputStreamReader=new InputStreamReader(inputStream,"GBK");
+            bufferedReader=new BufferedReader(inputStreamReader);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bufferedReader;
     }
 
     /**
@@ -39,7 +62,7 @@ public class UrlUtils {
             urlConnection.setRequestProperty("Cookie","AV_TOKEN=\"2|1:0|10:1471020445|8:AV_TOKEN|16:NTk1NjcwNjpUN2Zu|ca6073938b1efd5efdc831900c6c20c6e8b611f6f3599c4467fce7bc7fc217e8\"");
             urlConnection.connect();
             inputStream=urlConnection.getInputStream();
-            inputStreamReader=new InputStreamReader(inputStream,"GBK");
+            inputStreamReader=new InputStreamReader(inputStream,"UTF-8");
             bufferedReader=new BufferedReader(inputStreamReader);
         } catch (MalformedURLException e) {
             e.printStackTrace();

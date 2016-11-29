@@ -15,6 +15,13 @@ public class WriteToFile {
         File file=new File(PATH+"/"+FILE_NAME);
         write(PATH,file,message);
     }
+
+    /**
+     *
+     * @param var 路径或者文件名称
+     * @param message 写入文件的信息
+     * @param isPath 是否为路径
+     */
     public static void writeOrAppend(String var,String message,boolean isPath){
         File file=null;
         if(isPath){

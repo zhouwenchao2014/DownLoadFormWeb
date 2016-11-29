@@ -129,6 +129,20 @@ public class DownLoadFile {
         return true;
     }
 
+    /**
+     *
+     * @param url
+     * @param fileName
+     * @return
+     */
+    public static boolean downLoadFileUrl(String url,String fileName){
+        BufferedReader bufferedReader=UrlUtils.getBufferByUrlNoProperty(url);
+        createAndDownLoadFile(bufferedReader,fileName);
+        return true;
+    }
+
+
+
     public static boolean downLoadFile(String url,String fileName){
         BufferedReader bufferedReader=UrlUtils.getBufferByUrl(url,queue);
         createAndDownLoadFile(bufferedReader,fileName);
@@ -152,10 +166,9 @@ public class DownLoadFile {
             BufferedWriter bufferedWriter=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
             while ((line=bufferedReader.readLine())!=null){
                 bufferedWriter.write(line+"\n");
-                //System.out.println(line);
+                System.out.println(line);
             }
             bufferedWriter.flush();
-            System.out.println(fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
