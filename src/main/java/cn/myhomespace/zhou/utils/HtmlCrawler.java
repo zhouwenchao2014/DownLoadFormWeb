@@ -47,8 +47,63 @@ public class HtmlCrawler {
     private static final String UTF_8="utf-8";
 
     public static void main(String[] args) {
-        WeiPanDownload.downloadFromWeiPan("uxDx_GIHW6WOS");
+        //WeiPanDownload.downloadFromWeiPan("uxDx_GIHW6WOS");
         //weiPan();
+        //clcl();
+        xunshukan();
+    }
+
+    public static void xunshukan(){
+        List<String> list=new ArrayList<String>();
+        String baseUrl="http://www.xunshukan.com/h/?";
+        list.add("dushiqinggan/");
+        list.add("renqiluanlun/");
+        list.add("xiaoyuanchunse/");
+        list.add("wuxiagudian/");
+        list.add("paoniumiji/");
+        list.add("xingjingli/");
+        list.add("changpianHxiaoshuo/");
+        int size=list.size();
+        for(int j=1;j<=size;j++){
+            for(int i=1;i<37;i++){
+                String url=baseUrl+list.get(j-1)+"list_"+j+"_"+i+".html";
+                Elements elements=AnalysisHtml.getElementsFromUrlByTag("a",url,"GBK");
+                if(elements!=null){
+                    for(Element element : elements){
+                        String linkHref = element.attr("href");
+                        String text = element.text();
+                        if(linkHref.contains("dushiqinggan")){
+                            Elements contentsEle = AnalysisHtml.getElementsFromUrlByAttributeValue("id","booktext","http://www.xunshukan.com/h/"+linkHref,"GBK");
+                            for(Element element1 : contentsEle){
+                                String content = element1.text();
+                                WriteToFile.writeOrAppend("E:\\Tool\\Ebook\\"+list.get(j-1),text+".txt",content);
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    public static void clcl(){
+        for(int i=0;i<25;i++){
+            String url="http://t66y.com/thread0806.php?fid=20&search=&page="+(i+1);
+            Elements elements=AnalysisHtml.getElementsFromUrlByTag("a",url,UTF_8);
+            if(elements!=null){
+                for(Element element : elements){
+                    String linkHref = element.attr("href");
+                    String text = element.text();
+                    Elements contentsEle = AnalysisHtml.getElementsFromUrlByAttributeValue("class","tpc_content do_not_catch",linkHref,UTF_8);
+                    for(Element element1 : contentsEle){
+                        String content = element1.text();
+                        WriteToFile.writeOrAppend(text+".txt",content,false);
+                    }
+                }
+            }
+        }
     }
 
     public static void weiPan(){

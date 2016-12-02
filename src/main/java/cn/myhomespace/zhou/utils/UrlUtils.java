@@ -57,12 +57,15 @@ public class UrlUtils {
             URLConnection urlConnection=url.openConnection();
             urlConnection.setRequestProperty("Accept-Charset","utf-8");
             urlConnection.setRequestProperty("Content-Type","text/html;utf-8");
-            urlConnection.setRequestProperty("Cookie","Hm_lpvt_e0812646157cf7c35cba87cb1e72afc5=1479143386");
-            urlConnection.setRequestProperty("Cookie","Hm_lvt_e0812646157cf7c35cba87cb1e72afc5=1479143379");
-            urlConnection.setRequestProperty("Cookie","AV_TOKEN=\"2|1:0|10:1479143380|8:AV_TOKEN|16:NTk1NjcwNjpUN2Zu|9f7cf1ec65c7bb037f1f8506c475e66c3bcdb8319a1ec60986ae535badaef0b7\"");
+//            urlConnection.setRequestProperty("Cookie","Hm_lpvt_e0812646157cf7c35cba87cb1e72afc5=1479143386");
+//            urlConnection.setRequestProperty("Cookie","Hm_lvt_e0812646157cf7c35cba87cb1e72afc5=1479143379");
+//            urlConnection.setRequestProperty("Cookie","AV_TOKEN=\"2|1:0|10:1479143380|8:AV_TOKEN|16:NTk1NjcwNjpUN2Zu|9f7cf1ec65c7bb037f1f8506c475e66c3bcdb8319a1ec60986ae535badaef0b7\"");
+            urlConnection.setRequestProperty("Cookie","Hm_lpvt_e0812646157cf7c35cba87cb1e72afc5=1480423398");
+            urlConnection.setRequestProperty("Cookie","Hm_lvt_e0812646157cf7c35cba87cb1e72afc5=1480422838,1480423398");
+            urlConnection.setRequestProperty("Cookie","AV_TOKEN=\"2|1:0|10:1480423205|8:AV_TOKEN|16:MTc4NTE2Nzo1MTI4|40f64f1c568578de4eab35bbba576284f09dd971c53575ba7bd60e1f8cdbbee3\"");
             urlConnection.connect();
             inputStream=urlConnection.getInputStream();
-            inputStreamReader=new InputStreamReader(inputStream,"UTF-8");
+            inputStreamReader=new InputStreamReader(inputStream,"GBK");
             bufferedReader=new BufferedReader(inputStreamReader);
         } catch (MalformedURLException e) {
             e.printStackTrace();

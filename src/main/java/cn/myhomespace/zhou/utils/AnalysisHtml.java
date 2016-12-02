@@ -51,6 +51,8 @@ public class AnalysisHtml {
         try {
             url = new URL(urlStr);
             URLConnection urlConnection = url.openConnection();
+            urlConnection.setReadTimeout(10000000);
+            urlConnection.setConnectTimeout(1000000);
             urlConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36");
             doc = Jsoup.parse(urlConnection.getInputStream(),lan,urlStr);
         } catch (MalformedURLException e) {
